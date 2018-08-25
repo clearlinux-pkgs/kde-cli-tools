@@ -6,7 +6,7 @@
 #
 Name     : kde-cli-tools
 Version  : 5.13.4
-Release  : 1
+Release  : 2
 URL      : https://download.kde.org/stable/plasma/5.13.4/kde-cli-tools-5.13.4.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.13.4/kde-cli-tools-5.13.4.tar.xz
 Source99 : https://download.kde.org/stable/plasma/5.13.4/kde-cli-tools-5.13.4.tar.xz.sig
@@ -118,7 +118,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535162608
+export SOURCE_DATE_EPOCH=1535167358
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -126,7 +126,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535162608
+export SOURCE_DATE_EPOCH=1535167358
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/kde-cli-tools
 cp COPYING %{buildroot}/usr/share/doc/kde-cli-tools/COPYING
