@@ -1,6 +1,7 @@
-5.13.4
+5.13.5
 kactivities-dev
 kdesu-dev
 kinit-dev
 kwindowsystem-dev
 plasma-workspace-dev
+qtx11extras-dev
