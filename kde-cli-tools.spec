@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kde-cli-tools
-Version  : 5.14.4
-Release  : 8
-URL      : https://download.kde.org/stable/plasma/5.14.4/kde-cli-tools-5.14.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.14.4/kde-cli-tools-5.14.4.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.14.4/kde-cli-tools-5.14.4.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 5.14.5
+Release  : 9
+URL      : https://download.kde.org/stable/plasma/5.14.5/kde-cli-tools-5.14.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.14.5/kde-cli-tools-5.14.5.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.14.5/kde-cli-tools-5.14.5.tar.xz.sig
+Summary  : Tools based on KDE Frameworks 5 to better interact with the system
 Group    : Development/Tools
 License  : Artistic-1.0 GPL-2.0 LGPL-2.1
 Requires: kde-cli-tools-bin = %{version}-%{release}
@@ -110,22 +110,22 @@ man components for the kde-cli-tools package.
 
 
 %prep
-%setup -q -n kde-cli-tools-5.14.4
+%setup -q -n kde-cli-tools-5.14.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1543392010
+export SOURCE_DATE_EPOCH=1546973203
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1543392010
+export SOURCE_DATE_EPOCH=1546973203
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kde-cli-tools
 cp COPYING %{buildroot}/usr/share/package-licenses/kde-cli-tools/COPYING
