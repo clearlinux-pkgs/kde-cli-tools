@@ -6,7 +6,7 @@
 #
 Name     : kde-cli-tools
 Version  : 5.14.5
-Release  : 9
+Release  : 10
 URL      : https://download.kde.org/stable/plasma/5.14.5/kde-cli-tools-5.14.5.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.14.5/kde-cli-tools-5.14.5.tar.xz
 Source99 : https://download.kde.org/stable/plasma/5.14.5/kde-cli-tools-5.14.5.tar.xz.sig
@@ -24,8 +24,11 @@ BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules pkgconfig(xcb) xcb-util-cursor-dev xcb-util-image-dev xcb-util-keysyms-dev xcb-util-renderutil-dev xcb-util-wm-dev xcb-util-dev
 BuildRequires : kactivities-dev
 BuildRequires : kdesu-dev
+BuildRequires : kinit-dev
+BuildRequires : kwindowsystem-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
 BuildRequires : plasma-workspace-dev
+BuildRequires : qtx11extras-dev
 
 %description
 KDESU: A KDE front end for `su'.
@@ -52,18 +55,6 @@ Group: Data
 
 %description data
 data components for the kde-cli-tools package.
-
-
-%package dev
-Summary: dev components for the kde-cli-tools package.
-Group: Development
-Requires: kde-cli-tools-lib = %{version}-%{release}
-Requires: kde-cli-tools-bin = %{version}-%{release}
-Requires: kde-cli-tools-data = %{version}-%{release}
-Provides: kde-cli-tools-devel = %{version}-%{release}
-
-%description dev
-dev components for the kde-cli-tools package.
 
 
 %package doc
@@ -117,7 +108,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1546973203
+export SOURCE_DATE_EPOCH=1547422173
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -125,7 +116,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1546973203
+export SOURCE_DATE_EPOCH=1547422173
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kde-cli-tools
 cp COPYING %{buildroot}/usr/share/package-licenses/kde-cli-tools/COPYING
@@ -165,10 +156,6 @@ popd
 %files data
 %defattr(-,root,root,-)
 /usr/share/kservices5/filetypes.desktop
-
-%files dev
-%defattr(-,root,root,-)
-/usr/lib64/libkdeinit5_kcmshell5.so
 
 %files doc
 %defattr(0644,root,root,0755)
@@ -229,6 +216,7 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/libkdeinit5_kcmshell5.so
 /usr/lib64/qt5/plugins/kcm_filetypes.so
 
 %files license
