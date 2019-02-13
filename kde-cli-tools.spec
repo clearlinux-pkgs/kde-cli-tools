@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kde-cli-tools
-Version  : 5.14.5
-Release  : 11
-URL      : https://download.kde.org/stable/plasma/5.14.5/kde-cli-tools-5.14.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.14.5/kde-cli-tools-5.14.5.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.14.5/kde-cli-tools-5.14.5.tar.xz.sig
+Version  : 5.15.0
+Release  : 12
+URL      : https://download.kde.org/stable/plasma/5.15.0/kde-cli-tools-5.15.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.15.0/kde-cli-tools-5.15.0.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.15.0/kde-cli-tools-5.15.0.tar.xz.sig
 Summary  : Tools based on KDE Frameworks 5 to better interact with the system
 Group    : Development/Tools
 License  : Artistic-1.0 GPL-2.0 LGPL-2.1
@@ -24,11 +24,8 @@ BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules pkgconfig(xcb) xcb-util-cursor-dev xcb-util-image-dev xcb-util-keysyms-dev xcb-util-renderutil-dev xcb-util-wm-dev xcb-util-dev
 BuildRequires : kactivities-dev
 BuildRequires : kdesu-dev
-BuildRequires : kinit-dev
-BuildRequires : kwindowsystem-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
 BuildRequires : plasma-workspace-dev
-BuildRequires : qtx11extras-dev
 
 %description
 KDESU: A KDE front end for `su'.
@@ -101,14 +98,14 @@ man components for the kde-cli-tools package.
 
 
 %prep
-%setup -q -n kde-cli-tools-5.14.5
+%setup -q -n kde-cli-tools-5.15.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1547422173
+export SOURCE_DATE_EPOCH=1550023856
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -116,7 +113,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1547422173
+export SOURCE_DATE_EPOCH=1550023856
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kde-cli-tools
 cp COPYING %{buildroot}/usr/share/package-licenses/kde-cli-tools/COPYING
