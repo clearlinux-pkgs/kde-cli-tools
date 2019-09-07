@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kde-cli-tools
-Version  : 5.16.4
-Release  : 24
-URL      : https://download.kde.org/stable/plasma/5.16.4/kde-cli-tools-5.16.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.16.4/kde-cli-tools-5.16.4.tar.xz
-Source1 : https://download.kde.org/stable/plasma/5.16.4/kde-cli-tools-5.16.4.tar.xz.sig
+Version  : 5.16.5
+Release  : 25
+URL      : https://download.kde.org/stable/plasma/5.16.5/kde-cli-tools-5.16.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.16.5/kde-cli-tools-5.16.5.tar.xz
+Source1 : https://download.kde.org/stable/plasma/5.16.5/kde-cli-tools-5.16.5.tar.xz.sig
 Summary  : Tools based on KDE Frameworks 5 to better interact with the system
 Group    : Development/Tools
 License  : Artistic-1.0 GPL-2.0 LGPL-2.1
@@ -100,16 +100,17 @@ man components for the kde-cli-tools package.
 
 
 %prep
-%setup -q -n kde-cli-tools-5.16.4
+%setup -q -n kde-cli-tools-5.16.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1564520985
+export SOURCE_DATE_EPOCH=1567887401
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -123,7 +124,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1564520985
+export SOURCE_DATE_EPOCH=1567887401
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kde-cli-tools
 cp COPYING %{buildroot}/usr/share/package-licenses/kde-cli-tools/COPYING
