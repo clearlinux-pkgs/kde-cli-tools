@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kde-cli-tools
-Version  : 5.17.5
-Release  : 31
-URL      : https://download.kde.org/stable/plasma/5.17.5/kde-cli-tools-5.17.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.17.5/kde-cli-tools-5.17.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.17.5/kde-cli-tools-5.17.5.tar.xz.sig
+Version  : 5.18.0
+Release  : 32
+URL      : https://download.kde.org/stable/plasma/5.18.0/kde-cli-tools-5.18.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.18.0/kde-cli-tools-5.18.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.18.0/kde-cli-tools-5.18.0.tar.xz.sig
 Summary  : Tools based on KDE Frameworks 5 to better interact with the system
 Group    : Development/Tools
 License  : Artistic-1.0 GPL-2.0 LGPL-2.1
@@ -24,12 +24,8 @@ BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules pkgconfig(xcb) xcb-util-cursor-dev xcb-util-image-dev xcb-util-keysyms-dev xcb-util-renderutil-dev xcb-util-wm-dev xcb-util-dev
 BuildRequires : kactivities-dev
 BuildRequires : kdesu-dev
-BuildRequires : kinit-dev
-BuildRequires : kwindowsystem-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
 BuildRequires : plasma-workspace-dev
-BuildRequires : qtx11extras-dev
-BuildRequires : util-linux
 
 %description
 KDESU: A KDE front end for `su'.
@@ -101,15 +97,15 @@ man components for the kde-cli-tools package.
 
 
 %prep
-%setup -q -n kde-cli-tools-5.17.5
-cd %{_builddir}/kde-cli-tools-5.17.5
+%setup -q -n kde-cli-tools-5.18.0
+cd %{_builddir}/kde-cli-tools-5.18.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1578441524
+export SOURCE_DATE_EPOCH=1581453220
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -126,12 +122,12 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1578441524
+export SOURCE_DATE_EPOCH=1581453220
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kde-cli-tools
-cp %{_builddir}/kde-cli-tools-5.17.5/COPYING %{buildroot}/usr/share/package-licenses/kde-cli-tools/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/kde-cli-tools-5.17.5/COPYING.LIB %{buildroot}/usr/share/package-licenses/kde-cli-tools/01a6b4bf79aca9b556822601186afab86e8c4fbf
-cp %{_builddir}/kde-cli-tools-5.17.5/kdesu/LICENSE.readme %{buildroot}/usr/share/package-licenses/kde-cli-tools/2252f91fd990d9bad4fc93c8810bfa5df0f4e4cb
+cp %{_builddir}/kde-cli-tools-5.18.0/COPYING %{buildroot}/usr/share/package-licenses/kde-cli-tools/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/kde-cli-tools-5.18.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kde-cli-tools/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/kde-cli-tools-5.18.0/kdesu/LICENSE.readme %{buildroot}/usr/share/package-licenses/kde-cli-tools/2252f91fd990d9bad4fc93c8810bfa5df0f4e4cb
 pushd clr-build
 %make_install
 popd
@@ -165,6 +161,7 @@ popd
 
 %files data
 %defattr(-,root,root,-)
+/usr/share/applications/org.kde.keditfiletype.desktop
 /usr/share/kservices5/filetypes.desktop
 
 %files doc
