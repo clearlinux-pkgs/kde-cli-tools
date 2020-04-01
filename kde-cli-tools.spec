@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kde-cli-tools
-Version  : 5.18.3
-Release  : 35
-URL      : https://download.kde.org/stable/plasma/5.18.3/kde-cli-tools-5.18.3.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.18.3/kde-cli-tools-5.18.3.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.18.3/kde-cli-tools-5.18.3.tar.xz.sig
+Version  : 5.18.4.1
+Release  : 36
+URL      : https://download.kde.org/stable/plasma/5.18.4/kde-cli-tools-5.18.4.1.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.18.4/kde-cli-tools-5.18.4.1.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.18.4/kde-cli-tools-5.18.4.1.tar.xz.sig
 Summary  : Tools based on KDE Frameworks 5 to better interact with the system
 Group    : Development/Tools
 License  : Artistic-1.0 GPL-2.0 LGPL-2.1
@@ -97,15 +97,15 @@ man components for the kde-cli-tools package.
 
 
 %prep
-%setup -q -n kde-cli-tools-5.18.3
-cd %{_builddir}/kde-cli-tools-5.18.3
+%setup -q -n kde-cli-tools-5.18.4.1
+cd %{_builddir}/kde-cli-tools-5.18.4.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583872386
+export SOURCE_DATE_EPOCH=1585703086
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -122,12 +122,12 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1583872386
+export SOURCE_DATE_EPOCH=1585703086
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kde-cli-tools
-cp %{_builddir}/kde-cli-tools-5.18.3/COPYING %{buildroot}/usr/share/package-licenses/kde-cli-tools/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/kde-cli-tools-5.18.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/kde-cli-tools/01a6b4bf79aca9b556822601186afab86e8c4fbf
-cp %{_builddir}/kde-cli-tools-5.18.3/kdesu/LICENSE.readme %{buildroot}/usr/share/package-licenses/kde-cli-tools/2252f91fd990d9bad4fc93c8810bfa5df0f4e4cb
+cp %{_builddir}/kde-cli-tools-5.18.4.1/COPYING %{buildroot}/usr/share/package-licenses/kde-cli-tools/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/kde-cli-tools-5.18.4.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/kde-cli-tools/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/kde-cli-tools-5.18.4.1/kdesu/LICENSE.readme %{buildroot}/usr/share/package-licenses/kde-cli-tools/2252f91fd990d9bad4fc93c8810bfa5df0f4e4cb
 pushd clr-build
 %make_install
 popd
