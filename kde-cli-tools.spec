@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kde-cli-tools
-Version  : 5.18.4.1
-Release  : 36
-URL      : https://download.kde.org/stable/plasma/5.18.4/kde-cli-tools-5.18.4.1.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.18.4/kde-cli-tools-5.18.4.1.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.18.4/kde-cli-tools-5.18.4.1.tar.xz.sig
-Summary  : Tools based on KDE Frameworks 5 to better interact with the system
+Version  : 5.18.5
+Release  : 37
+URL      : https://download.kde.org/stable/plasma/5.18.5/kde-cli-tools-5.18.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.18.5/kde-cli-tools-5.18.5.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.18.5/kde-cli-tools-5.18.5.tar.xz.sig
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Artistic-1.0 GPL-2.0 LGPL-2.1
 Requires: kde-cli-tools-bin = %{version}-%{release}
@@ -22,10 +22,15 @@ Requires: kde-cli-tools-man = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules pkgconfig(xcb) xcb-util-cursor-dev xcb-util-image-dev xcb-util-keysyms-dev xcb-util-renderutil-dev xcb-util-wm-dev xcb-util-dev
+BuildRequires : extra-cmake-modules-data
 BuildRequires : kactivities-dev
 BuildRequires : kdesu-dev
+BuildRequires : kdoctools-dev
+BuildRequires : ki18n-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
 BuildRequires : plasma-workspace-dev
+BuildRequires : qtbase-dev
+BuildRequires : qtx11extras-dev
 
 %description
 KDESU: A KDE front end for `su'.
@@ -97,37 +102,36 @@ man components for the kde-cli-tools package.
 
 
 %prep
-%setup -q -n kde-cli-tools-5.18.4.1
-cd %{_builddir}/kde-cli-tools-5.18.4.1
+%setup -q -n kde-cli-tools-5.18.5
+cd %{_builddir}/kde-cli-tools-5.18.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1585703086
+export SOURCE_DATE_EPOCH=1588709050
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
 make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1585703086
+export SOURCE_DATE_EPOCH=1588709050
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kde-cli-tools
-cp %{_builddir}/kde-cli-tools-5.18.4.1/COPYING %{buildroot}/usr/share/package-licenses/kde-cli-tools/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/kde-cli-tools-5.18.4.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/kde-cli-tools/01a6b4bf79aca9b556822601186afab86e8c4fbf
-cp %{_builddir}/kde-cli-tools-5.18.4.1/kdesu/LICENSE.readme %{buildroot}/usr/share/package-licenses/kde-cli-tools/2252f91fd990d9bad4fc93c8810bfa5df0f4e4cb
+cp %{_builddir}/kde-cli-tools-5.18.5/COPYING %{buildroot}/usr/share/package-licenses/kde-cli-tools/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/kde-cli-tools-5.18.5/COPYING.LIB %{buildroot}/usr/share/package-licenses/kde-cli-tools/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/kde-cli-tools-5.18.5/kdesu/LICENSE.readme %{buildroot}/usr/share/package-licenses/kde-cli-tools/2252f91fd990d9bad4fc93c8810bfa5df0f4e4cb
 pushd clr-build
 %make_install
 popd
