@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kde-cli-tools
-Version  : 5.18.5
-Release  : 37
-URL      : https://download.kde.org/stable/plasma/5.18.5/kde-cli-tools-5.18.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.18.5/kde-cli-tools-5.18.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.18.5/kde-cli-tools-5.18.5.tar.xz.sig
+Version  : 5.19.0
+Release  : 38
+URL      : https://download.kde.org/stable/plasma/5.19.0/kde-cli-tools-5.19.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.19.0/kde-cli-tools-5.19.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.19.0/kde-cli-tools-5.19.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Artistic-1.0 GPL-2.0 LGPL-2.1
@@ -102,15 +102,15 @@ man components for the kde-cli-tools package.
 
 
 %prep
-%setup -q -n kde-cli-tools-5.18.5
-cd %{_builddir}/kde-cli-tools-5.18.5
+%setup -q -n kde-cli-tools-5.19.0
+cd %{_builddir}/kde-cli-tools-5.19.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1588709050
+export SOURCE_DATE_EPOCH=1591747547
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -126,12 +126,12 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1588709050
+export SOURCE_DATE_EPOCH=1591747547
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kde-cli-tools
-cp %{_builddir}/kde-cli-tools-5.18.5/COPYING %{buildroot}/usr/share/package-licenses/kde-cli-tools/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/kde-cli-tools-5.18.5/COPYING.LIB %{buildroot}/usr/share/package-licenses/kde-cli-tools/01a6b4bf79aca9b556822601186afab86e8c4fbf
-cp %{_builddir}/kde-cli-tools-5.18.5/kdesu/LICENSE.readme %{buildroot}/usr/share/package-licenses/kde-cli-tools/2252f91fd990d9bad4fc93c8810bfa5df0f4e4cb
+cp %{_builddir}/kde-cli-tools-5.19.0/COPYING %{buildroot}/usr/share/package-licenses/kde-cli-tools/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/kde-cli-tools-5.19.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kde-cli-tools/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/kde-cli-tools-5.19.0/kdesu/LICENSE.readme %{buildroot}/usr/share/package-licenses/kde-cli-tools/2252f91fd990d9bad4fc93c8810bfa5df0f4e4cb
 pushd clr-build
 %make_install
 popd
@@ -188,6 +188,8 @@ popd
 /usr/share/doc/HTML/es/kdesu/index.docbook
 /usr/share/doc/HTML/et/kdesu/index.cache.bz2
 /usr/share/doc/HTML/et/kdesu/index.docbook
+/usr/share/doc/HTML/fr/kdesu/index.cache.bz2
+/usr/share/doc/HTML/fr/kdesu/index.docbook
 /usr/share/doc/HTML/id/kcontrol5/filetypes/index.cache.bz2
 /usr/share/doc/HTML/id/kcontrol5/filetypes/index.docbook
 /usr/share/doc/HTML/id/kdesu/index.cache.bz2
@@ -231,7 +233,6 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/libkdeinit5_kcmshell5.so
 /usr/lib64/qt5/plugins/kcm_filetypes.so
 
 %files license
@@ -246,6 +247,7 @@ popd
 /usr/share/man/de/man1/kdesu.1
 /usr/share/man/es/man1/kdesu.1
 /usr/share/man/et/man1/kdesu.1
+/usr/share/man/fr/man1/kdesu.1
 /usr/share/man/id/man1/kdesu.1
 /usr/share/man/it/man1/kdesu.1
 /usr/share/man/man1/kdesu.1
