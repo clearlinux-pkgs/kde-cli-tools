@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kde-cli-tools
-Version  : 5.22.0
-Release  : 50
-URL      : https://download.kde.org/stable/plasma/5.22.0/kde-cli-tools-5.22.0.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.22.0/kde-cli-tools-5.22.0.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.22.0/kde-cli-tools-5.22.0.tar.xz.sig
+Version  : 5.22.1
+Release  : 51
+URL      : https://download.kde.org/stable/plasma/5.22.1/kde-cli-tools-5.22.1.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.22.1/kde-cli-tools-5.22.1.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.22.1/kde-cli-tools-5.22.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Artistic-1.0 GFDL-1.2 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
@@ -102,15 +102,15 @@ man components for the kde-cli-tools package.
 
 
 %prep
-%setup -q -n kde-cli-tools-5.22.0
-cd %{_builddir}/kde-cli-tools-5.22.0
+%setup -q -n kde-cli-tools-5.22.1
+cd %{_builddir}/kde-cli-tools-5.22.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1623376740
+export SOURCE_DATE_EPOCH=1623809972
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -126,20 +126,20 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1623376740
+export SOURCE_DATE_EPOCH=1623809972
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kde-cli-tools
-cp %{_builddir}/kde-cli-tools-5.22.0/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/ee03d68f6be20b170e5ea5d114d6acafb3f2d1dc
-cp %{_builddir}/kde-cli-tools-5.22.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/kde-cli-tools-5.22.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/kde-cli-tools-5.22.0/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/a4c60b3fefda228cd7439d3565df043192fef137
-cp %{_builddir}/kde-cli-tools-5.22.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/a4c60b3fefda228cd7439d3565df043192fef137
-cp %{_builddir}/kde-cli-tools-5.22.0/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
-cp %{_builddir}/kde-cli-tools-5.22.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/kde-cli-tools-5.22.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/kde-cli-tools-5.22.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/kde-cli-tools-5.22.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/kde-cli-tools-5.22.0/kdesu/LICENSE.readme %{buildroot}/usr/share/package-licenses/kde-cli-tools/2252f91fd990d9bad4fc93c8810bfa5df0f4e4cb
+cp %{_builddir}/kde-cli-tools-5.22.1/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/ee03d68f6be20b170e5ea5d114d6acafb3f2d1dc
+cp %{_builddir}/kde-cli-tools-5.22.1/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/kde-cli-tools-5.22.1/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/kde-cli-tools-5.22.1/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/a4c60b3fefda228cd7439d3565df043192fef137
+cp %{_builddir}/kde-cli-tools-5.22.1/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/a4c60b3fefda228cd7439d3565df043192fef137
+cp %{_builddir}/kde-cli-tools-5.22.1/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
+cp %{_builddir}/kde-cli-tools-5.22.1/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/kde-cli-tools-5.22.1/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/kde-cli-tools-5.22.1/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kde-cli-tools-5.22.1/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kde-cli-tools-5.22.1/kdesu/LICENSE.readme %{buildroot}/usr/share/package-licenses/kde-cli-tools/2252f91fd990d9bad4fc93c8810bfa5df0f4e4cb
 pushd clr-build
 %make_install
 popd
