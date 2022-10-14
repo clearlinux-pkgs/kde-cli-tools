@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : kde-cli-tools
-Version  : 5.25.5
-Release  : 70
-URL      : https://download.kde.org/stable/plasma/5.25.5/kde-cli-tools-5.25.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.25.5/kde-cli-tools-5.25.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.25.5/kde-cli-tools-5.25.5.tar.xz.sig
+Version  : 5.26.0
+Release  : 71
+URL      : https://download.kde.org/stable/plasma/5.26.0/kde-cli-tools-5.26.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.26.0/kde-cli-tools-5.26.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.26.0/kde-cli-tools-5.26.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : Artistic-1.0 Artistic-2.0 GFDL-1.2 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
+License  : Artistic-1.0 Artistic-2.0 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
 Requires: kde-cli-tools-bin = %{version}-%{release}
 Requires: kde-cli-tools-data = %{version}-%{release}
 Requires: kde-cli-tools-lib = %{version}-%{release}
@@ -26,7 +26,6 @@ BuildRequires : extra-cmake-modules-data
 BuildRequires : kactivities-dev
 BuildRequires : kdesu-dev
 BuildRequires : kdoctools-dev
-BuildRequires : ki18n-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86vm-dev
 BuildRequires : plasma-workspace-dev
 BuildRequires : qtx11extras-dev
@@ -101,15 +100,15 @@ man components for the kde-cli-tools package.
 
 
 %prep
-%setup -q -n kde-cli-tools-5.25.5
-cd %{_builddir}/kde-cli-tools-5.25.5
+%setup -q -n kde-cli-tools-5.26.0
+cd %{_builddir}/kde-cli-tools-5.26.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1662508637
+export SOURCE_DATE_EPOCH=1665769679
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -125,11 +124,10 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1662508637
+export SOURCE_DATE_EPOCH=1665769679
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kde-cli-tools
 cp %{_builddir}/kde-cli-tools-%{version}/LICENSES/Artistic-2.0.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/3ec1fc444ebaad19281d7bb54b57ade79f150d8c || :
-cp %{_builddir}/kde-cli-tools-%{version}/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/ee03d68f6be20b170e5ea5d114d6acafb3f2d1dc || :
 cp %{_builddir}/kde-cli-tools-%{version}/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/3e8971c6c5f16674958913a94a36b1ea7a00ac46 || :
 cp %{_builddir}/kde-cli-tools-%{version}/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/3e8971c6c5f16674958913a94a36b1ea7a00ac46 || :
 cp %{_builddir}/kde-cli-tools-%{version}/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/2123756e0b1fc8243547235a33c0fcabfe3b9a51 || :
@@ -268,7 +266,6 @@ popd
 /usr/share/package-licenses/kde-cli-tools/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
 /usr/share/package-licenses/kde-cli-tools/a4c60b3fefda228cd7439d3565df043192fef137
 /usr/share/package-licenses/kde-cli-tools/e458941548e0864907e654fa2e192844ae90fc32
-/usr/share/package-licenses/kde-cli-tools/ee03d68f6be20b170e5ea5d114d6acafb3f2d1dc
 
 %files man
 %defattr(0644,root,root,0755)
