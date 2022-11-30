@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : kde-cli-tools
-Version  : 5.26.3
-Release  : 74
-URL      : https://download.kde.org/stable/plasma/5.26.3/kde-cli-tools-5.26.3.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.26.3/kde-cli-tools-5.26.3.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.26.3/kde-cli-tools-5.26.3.tar.xz.sig
+Version  : 5.26.4
+Release  : 75
+URL      : https://download.kde.org/stable/plasma/5.26.4/kde-cli-tools-5.26.4.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.26.4/kde-cli-tools-5.26.4.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.26.4/kde-cli-tools-5.26.4.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-2.0 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
@@ -25,7 +25,6 @@ BuildRequires : extra-cmake-modules pkgconfig(xcb) xcb-util-cursor-dev xcb-util-
 BuildRequires : extra-cmake-modules-data
 BuildRequires : kactivities-dev
 BuildRequires : kdesu-dev
-BuildRequires : kdoctools-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86vm-dev
 BuildRequires : plasma-workspace-dev
 BuildRequires : qtx11extras-dev
@@ -100,15 +99,15 @@ man components for the kde-cli-tools package.
 
 
 %prep
-%setup -q -n kde-cli-tools-5.26.3
-cd %{_builddir}/kde-cli-tools-5.26.3
+%setup -q -n kde-cli-tools-5.26.4
+cd %{_builddir}/kde-cli-tools-5.26.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1667933896
+export SOURCE_DATE_EPOCH=1669824129
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -124,7 +123,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1667933896
+export SOURCE_DATE_EPOCH=1669824129
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kde-cli-tools
 cp %{_builddir}/kde-cli-tools-%{version}/LICENSES/Artistic-2.0.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/3ec1fc444ebaad19281d7bb54b57ade79f150d8c || :
