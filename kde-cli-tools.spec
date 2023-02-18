@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : kde-cli-tools
-Version  : 5.26.5
-Release  : 76
-URL      : https://download.kde.org/stable/plasma/5.26.5/kde-cli-tools-5.26.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.26.5/kde-cli-tools-5.26.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.26.5/kde-cli-tools-5.26.5.tar.xz.sig
+Version  : 5.27.0
+Release  : 77
+URL      : https://download.kde.org/stable/plasma/5.27.0/kde-cli-tools-5.27.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.27.0/kde-cli-tools-5.27.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.27.0/kde-cli-tools-5.27.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-2.0 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
@@ -102,15 +102,15 @@ man components for the kde-cli-tools package.
 
 
 %prep
-%setup -q -n kde-cli-tools-5.26.5
-cd %{_builddir}/kde-cli-tools-5.26.5
+%setup -q -n kde-cli-tools-5.27.0
+cd %{_builddir}/kde-cli-tools-5.27.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1673315101
+export SOURCE_DATE_EPOCH=1676751336
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -126,7 +126,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1673315101
+export SOURCE_DATE_EPOCH=1676751336
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kde-cli-tools
 cp %{_builddir}/kde-cli-tools-%{version}/LICENSES/Artistic-2.0.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/3ec1fc444ebaad19281d7bb54b57ade79f150d8c || :
@@ -149,10 +149,10 @@ popd
 %find_lang kcmshell5
 %find_lang kdesu5
 %find_lang kstart5
+%find_lang kbroadcastnotification
 %find_lang kioclient
 %find_lang kmimetypefinder5
 %find_lang ktraderclient5
-%find_lang kbroadcastnotification
 %find_lang plasma-open-settings
 
 %files
@@ -210,6 +210,8 @@ popd
 /usr/share/doc/HTML/es/kdesu/index.docbook
 /usr/share/doc/HTML/et/kdesu/index.cache.bz2
 /usr/share/doc/HTML/et/kdesu/index.docbook
+/usr/share/doc/HTML/fr/kcontrol5/filetypes/index.cache.bz2
+/usr/share/doc/HTML/fr/kcontrol5/filetypes/index.docbook
 /usr/share/doc/HTML/fr/kdesu/index.cache.bz2
 /usr/share/doc/HTML/fr/kdesu/index.docbook
 /usr/share/doc/HTML/id/kcontrol5/filetypes/index.cache.bz2
@@ -289,6 +291,6 @@ popd
 /usr/share/man/sv/man1/kdesu.1
 /usr/share/man/uk/man1/kdesu.1
 
-%files locales -f kcm5_filetypes.lang -f kcmshell5.lang -f kdesu5.lang -f kstart5.lang -f kioclient.lang -f kmimetypefinder5.lang -f ktraderclient5.lang -f kbroadcastnotification.lang -f plasma-open-settings.lang
+%files locales -f kcm5_filetypes.lang -f kcmshell5.lang -f kdesu5.lang -f kstart5.lang -f kbroadcastnotification.lang -f kioclient.lang -f kmimetypefinder5.lang -f ktraderclient5.lang -f plasma-open-settings.lang
 %defattr(-,root,root,-)
 
