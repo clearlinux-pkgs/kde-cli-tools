@@ -7,7 +7,7 @@
 #
 Name     : kde-cli-tools
 Version  : 5.27.5.1
-Release  : 83
+Release  : 84
 URL      : https://download.kde.org/stable/plasma/5.27.5/kde-cli-tools-5.27.5.1.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.27.5/kde-cli-tools-5.27.5.1.tar.xz
 Source1  : https://download.kde.org/stable/plasma/5.27.5/kde-cli-tools-5.27.5.1.tar.xz.sig
@@ -111,7 +111,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684885416
+export SOURCE_DATE_EPOCH=1685568293
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -144,7 +144,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1684885416
+export SOURCE_DATE_EPOCH=1685568293
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kde-cli-tools
 cp %{_builddir}/kde-cli-tools-%{version}/LICENSES/Artistic-2.0.txt %{buildroot}/usr/share/package-licenses/kde-cli-tools/3ec1fc444ebaad19281d7bb54b57ade79f150d8c || :
@@ -189,21 +189,13 @@ popd
 /V3/usr/bin/kcmshell5
 /V3/usr/bin/kde-inhibit
 /V3/usr/bin/kde-open
-/V3/usr/bin/kde-open5
 /V3/usr/bin/kdecp
-/V3/usr/bin/kdecp5
 /V3/usr/bin/kdemv
-/V3/usr/bin/kdemv5
 /V3/usr/bin/keditfiletype
-/V3/usr/bin/keditfiletype5
 /V3/usr/bin/kioclient
-/V3/usr/bin/kioclient5
 /V3/usr/bin/kmimetypefinder
-/V3/usr/bin/kmimetypefinder5
 /V3/usr/bin/kstart
-/V3/usr/bin/kstart5
 /V3/usr/bin/ksvgtopng
-/V3/usr/bin/ksvgtopng5
 /V3/usr/bin/ktraderclient5
 /V3/usr/bin/plasma-open-settings
 /usr/bin/kbroadcastnotification
