@@ -9,7 +9,7 @@
 #
 Name     : kde-cli-tools
 Version  : 6.0.2
-Release  : 92
+Release  : 93
 URL      : https://download.kde.org/stable/plasma/6.0.2/kde-cli-tools-6.0.2.tar.xz
 Source0  : https://download.kde.org/stable/plasma/6.0.2/kde-cli-tools-6.0.2.tar.xz
 Source1  : https://download.kde.org/stable/plasma/6.0.2/kde-cli-tools-6.0.2.tar.xz.sig
